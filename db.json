@@ -1,0 +1,19 @@
+{
+  "feedback": [
+    {
+      "id": 1,
+      "rating": 10,
+      "text": "Isso é um feedback legal 1"
+    },
+    {
+      "id": 2,
+      "rating": 7,
+      "text": "Isso é um feedback legal 2"
+    },
+    {
+      "id": 3,
+      "rating": 8,
+      "text": "Isso é um feedback legal 3"
+    }
+  ]
+}
