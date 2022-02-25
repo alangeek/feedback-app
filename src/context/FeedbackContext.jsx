@@ -5,12 +5,25 @@ import FeedbackData from "../data/FeedbackData";
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(true)
   const [feedback, setFeedback] = useState([])
-
   const [feedbackEdit, setFeedEdit] = useState({
     item: {},
     edit: false
   })
+
+  useEffect(() => {
+    fetchFeedback()
+  }, [])
+
+  // Fetch feedback
+  const fetchFeedback = async () => {
+    const response = await fetch(`http://localhost:5000/feedback?_sort=id&_order=desc`)
+    const data = await response.json()
+
+    setFeedback(data)
+    setIsLoading(false)
+  }
 
   // Delete feedback
   const deleteFeedback = (id) => {
@@ -43,6 +56,7 @@ export const FeedbackProvider = ({ children }) => {
     <FeedbackContext.Provider value={{
       feedback,
       feedbackEdit,
+      isLoading,
       addFeedback,
       deleteFeedback,
       editFeedback,
