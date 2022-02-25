@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "concurrently \"yarn server\" \"yarn dev\"",
+    "dev": "vite",
+    "dev:develop": "concurrently \"yarn server\" \"yarn dev\"",
     "server": "json-server --watch db.json --port 5000",
     "build": "vite build",
     "preview": "vite preview"
